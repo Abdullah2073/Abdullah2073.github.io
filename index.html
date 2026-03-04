@@ -3,532 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdullah | AI Engineer & ML Developer</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Abdullah – AI Engineer, Machine Learning Developer & AI-First Builder. BS Artificial Intelligence at FAST. Specializing in LLMs, Computer Vision, RAG Systems." />
-  <meta name="keywords" content="AI Engineer, Machine Learning, Deep Learning, LLMs, Computer Vision, PyTorch, Python, RAG, NLP, Abdullah" />
+  <title>Abdullah | AI Engineer &amp; ML Developer</title>
+  <meta name="description" content="Abdullah – AI Engineer, Machine Learning Developer. BS AI at FAST. Specializing in LLMs, Computer Vision, RAG Systems." />
+  <meta name="keywords" content="AI Engineer, Machine Learning, Deep Learning, LLMs, Computer Vision, PyTorch, Python, RAG, NLP" />
   <meta name="author" content="Abdullah" />
-  <meta property="og:title" content="Abdullah | AI Engineer & ML Developer" />
-  <meta property="og:description" content="Building intelligent systems that think, learn, and scale." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://Abdullah2073.github.io" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
-
-  <!-- Google Fonts: Sora (headings) + Manrope (body) + JetBrains Mono (code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- LOADER -->
-  <div id="loader" role="status" aria-label="Loading">
-    <div class="loader-inner">
-      <div class="loader-ring"></div>
-      <span class="loader-text">initializing_</span>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-ring"></div>
+    <span class="loader-text">initializing_</span>
+  </div>
+</div>
+
+<!-- BACKGROUND -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner container">
+    <a href="#hero" class="nav-logo"><span>&lt;</span>Abdullah<span>/&gt;</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="Abdullah_Resume.pdf" download class="nav-cta"><i class="fa-solid fa-download"></i> Resume</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</nav>
 
-  <!-- BACKGROUND CANVAS -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span> Available for Remote Roles
+    </div>
+    <h1 class="hero-name">Abdullah</h1>
+    <div class="hero-subtitle">
+      <span class="mono cyan">AI Engineer</span>
+      <span class="sep">·</span>
+      <span class="mono">ML Developer</span>
+      <span class="sep">·</span>
+      <span class="mono">AI-First Builder</span>
+    </div>
+    <p class="hero-tagline">
+      I architect <span class="cyan">intelligent systems</span> — from neural networks that see,
+      to language models that reason, to pipelines that scale.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-cube"></i> View Projects</a>
+      <a href="Abdullah_Resume.pdf" download class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+      <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:abdullahzx2004@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+  <div class="hero-lines"><div></div><div></div><div></div><div></div></div>
+  <div class="hero-scroll">
+    <div class="scroll-pill"><div class="scroll-dot"></div></div>
+    <span class="mono">scroll</span>
+  </div>
+</section>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner container">
-      <a href="#hero" class="nav-logo"><span class="mono">&lt;</span>Abdullah<span class="mono">/&gt;</span></a>
-      <ul class="nav-links" id="nav-links" role="menubar">
-        <li role="none"><a href="#about" role="menuitem">About</a></li>
-        <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
-        <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
-        <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
-        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
-      </ul>
-      <div class="nav-right">
-        <a href="Abdullah_Resume.pdf" download class="nav-cta"><i class="fa-solid fa-download"></i> Resume</a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
-          <span></span><span></span><span></span>
-        </button>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="eyebrow"><span class="mono cyan">01 /</span> About Me</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Building at the frontier<br/><span class="cyan">of intelligence.</span></h2>
+        <p>I'm an AI undergraduate at <strong>FAST-NUCES Islamabad</strong>, pursuing a BS in Artificial Intelligence with deep specialisation in production-grade ML systems. My work lives at the intersection of deep learning, large language models, and scalable backend AI services.</p>
+        <p>During my internship at <strong>Nebunex AI</strong>, I engineered multimodal AI systems integrating clinical ECG data with vision-language models via CLIP, processed 50,000+ patient records through optimised parallel pipelines, and applied transformer architectures for unstructured medical NLP.</p>
+        <p>I build things that think — secure RAG pipelines, CNN/ViT classifiers, agentic orchestration systems, and containerised microservices. My goal: ship AI that works reliably, at scale.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-n">4+</span><span class="stat-l">Production Projects</span></div>
+          <div class="stat"><span class="stat-n">50K+</span><span class="stat-l">Records Processed</span></div>
+          <div class="stat"><span class="stat-n">2026</span><span class="stat-l">Graduating</span></div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="card-avatar">
+          <div class="orbit-ring"></div>
+          <div class="avatar-core"><i class="fa-solid fa-brain"></i></div>
+        </div>
+        <div class="card-rows">
+          <div class="card-row"><i class="fa-solid fa-graduation-cap"></i><span>BS Artificial Intelligence, FAST</span></div>
+          <div class="card-row"><i class="fa-solid fa-location-dot"></i><span>Islamabad, Pakistan</span></div>
+          <div class="card-row"><i class="fa-solid fa-code"></i><span>Python · PyTorch · LangChain</span></div>
+          <div class="card-row"><i class="fa-solid fa-rocket"></i><span>Open to Global Remote Roles</span></div>
+        </div>
+        <div class="card-chips">
+          <span>LLMs</span><span>Computer Vision</span><span>RAG</span><span>NLP</span><span>Deep Learning</span>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero" aria-label="Introduction">
-    <div class="hero-content">
-      <div class="hero-badge reveal-fade" style="--d:0.1s">
-        <span class="pulse-dot"></span>
-        Available for Remote Roles
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="eyebrow"><span class="mono cyan">02 /</span> Skills</p>
+    <h2 class="section-title">My Tech Arsenal</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-terminal"></i></div><span>Programming</span></div>
+        <div class="sk-bars">
+          <div class="sk-row"><div class="sk-lbl"><span>Python</span><span>95%</span></div><div class="sk-bar"><div class="sk-fill" data-w="95"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>C / C++</span><span>75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>SQL</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>JavaScript</span><span>65%</span></div><div class="sk-bar"><div class="sk-fill" data-w="65"></div></div></div>
+        </div>
       </div>
-      <h1 class="hero-name reveal-fade" style="--d:0.25s">Abdullah</h1>
-      <div class="hero-subtitle reveal-fade" style="--d:0.4s">
-        <span class="mono accent-text">AI Engineer</span>
-        <span class="sep">·</span>
-        <span class="mono">ML Developer</span>
-        <span class="sep">·</span>
-        <span class="mono">AI-First Builder</span>
+
+      <div class="skill-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-microchip"></i></div><span>AI / ML Frameworks</span></div>
+        <div class="sk-bars">
+          <div class="sk-row"><div class="sk-lbl"><span>PyTorch</span><span>90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>LangChain</span><span>85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>TensorFlow</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>Scikit-Learn</span><span>88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+        </div>
       </div>
-      <p class="hero-tagline reveal-fade" style="--d:0.55s">
-        I architect <span class="accent-text">intelligent systems</span> — from neural networks that see,
-        to language models that reason, to pipelines that scale.
-      </p>
-      <div class="hero-actions reveal-fade" style="--d:0.7s">
-        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-cube"></i> View Projects</a>
-        <a href="Abdullah_Resume.pdf" download class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
-        <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+
+      <div class="skill-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-database"></i></div><span>Data Engineering</span></div>
+        <div class="sk-bars">
+          <div class="sk-row"><div class="sk-lbl"><span>NumPy / Pandas</span><span>92%</span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>Feature Engineering</span><span>85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>OpenCV</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>MySQL</span><span>78%</span></div><div class="sk-bar"><div class="sk-fill" data-w="78"></div></div></div>
+        </div>
       </div>
-      <div class="hero-socials reveal-fade" style="--d:0.85s">
-        <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
+
+      <div class="skill-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-server"></i></div><span>Backend &amp; DevOps</span></div>
+        <div class="sk-bars">
+          <div class="sk-row"><div class="sk-lbl"><span>Django</span><span>75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>gRPC</span><span>72%</span></div><div class="sk-bar"><div class="sk-fill" data-w="72"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>Docker</span><span>70%</span></div><div class="sk-bar"><div class="sk-fill" data-w="70"></div></div></div>
+          <div class="sk-row"><div class="sk-lbl"><span>Git / GitHub</span><span>90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card chip-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-eye"></i></div><span>Computer Vision</span></div>
+        <div class="chip-grid">
+          <span>Image Classification</span><span>Object Detection</span><span>CNNs</span>
+          <span>Vision Transformers</span><span>CLIP</span><span>Diffusion Models</span>
+          <span>OpenCV</span><span>Segmentation</span>
+        </div>
+      </div>
+
+      <div class="skill-card chip-card">
+        <div class="sk-hd"><div class="sk-ico"><i class="fa-solid fa-comments"></i></div><span>NLP &amp; LLM Ops</span></div>
+        <div class="chip-grid">
+          <span>RAG Pipelines</span><span>LangGraph</span><span>CrewAI</span>
+          <span>Prompt Engineering</span><span>Embeddings</span><span>ChromaDB</span>
+          <span>n8n</span><span>Agent Orchestration</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="eyebrow"><span class="mono cyan">03 /</span> Projects</p>
+    <h2 class="section-title">Things I've Built</h2>
+    <p class="section-sub">Production-grade AI systems built with precision and purpose.</p>
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pc-top-right">
+            <span class="badge-feat">Featured</span>
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">Multi-Tenant Agentic RAG System</h3>
+        <p class="pc-desc">Enterprise-grade RAG platform with multi-layered security for SaaS environments. Implements injection attack detection, ACL-based tenant isolation, PII masking via regex, and conversational memory. Groq LLM integration delivers sub-200ms inference with mandatory citation enforcement for hallucination-resistant outputs.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-lock"></i> Multi-layer security</span>
+          <span><i class="fa-solid fa-bolt"></i> &lt;200ms inference</span>
+          <span><i class="fa-solid fa-shield-check"></i> PII masking</span>
+        </div>
+        <div class="pc-tech"><span>LangChain</span><span>ChromaDB</span><span>Groq API</span><span>RAG</span><span>Python</span><span>LangGraph</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-image"></i></div>
+          <div class="pc-top-right">
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">DreamShaper — Text-to-Image Microservice</h3>
+        <p class="pc-desc">Fully containerised AI image-generation service built on gRPC for high-performance, low-latency communication. Powered by Hugging Face Stable Diffusion with concurrent request handling via asyncio. Features unit and Postman tests, a Gradio frontend demo, and Docker packaging. Optimised with model caching and batch inference to reduce VRAM overhead.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-cubes"></i> Containerised</span>
+          <span><i class="fa-solid fa-arrows-spin"></i> Concurrent requests</span>
+          <span><i class="fa-solid fa-vial"></i> Unit + API tested</span>
+        </div>
+        <div class="pc-tech"><span>Hugging Face</span><span>gRPC</span><span>PyTorch</span><span>Docker</span><span>Gradio</span><span>Diffusion</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="pc-top-right">
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">Image Classification System</h3>
+        <p class="pc-desc">Full-stack web app benchmarking CNN architectures vs. Vision Transformers (ViTs). The Django backend handles preprocessing, model inference, and returns per-class probability distributions. An interactive frontend visualises predictions in real time with animated confidence bars and supports runtime model switching for direct CNN-vs-ViT comparisons.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-chart-bar"></i> CNN vs ViT</span>
+          <span><i class="fa-solid fa-percent"></i> Confidence scores</span>
+          <span><i class="fa-solid fa-globe"></i> Full-stack app</span>
+        </div>
+        <div class="pc-tech"><span>PyTorch</span><span>TensorFlow</span><span>Django</span><span>OpenCV</span><span>ViT</span><span>NumPy</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-plane-departure"></i></div>
+          <div class="pc-top-right">
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">Flight Departure Delay Prediction</h3>
+        <p class="pc-desc">End-to-end ML pipeline predicting flight delays from merged flight operations and weather data. Deep EDA uncovered key delay drivers. Feature engineering introduced temporal and interaction features. Multiple classifiers evaluated via stratified k-fold cross-validation. Final model selected on Accuracy, Precision, Recall and F1-score, with SHAP explainability.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-magnifying-glass-chart"></i> Deep EDA</span>
+          <span><i class="fa-solid fa-sliders"></i> Cross-validation</span>
+          <span><i class="fa-solid fa-trophy"></i> F1-optimised</span>
+        </div>
+        <div class="pc-tech"><span>Scikit-Learn</span><span>XGBoost</span><span>Pandas</span><span>NumPy</span><span>SHAP</span><span>Matplotlib</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-network-wired"></i></div>
+          <div class="pc-top-right">
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">Neural Network from Scratch</h3>
+        <p class="pc-desc">Ground-up neural network on CIFAR-10 — no frameworks, pure NumPy. Covers forward and backward passes, multi-class SVM loss, gradient descent with momentum, and weight regularisation from first principles. Built to deeply understand the mathematics of backpropagation without the abstraction of PyTorch or TensorFlow.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-code"></i> Zero frameworks</span>
+          <span><i class="fa-solid fa-square-root-variable"></i> Pure math</span>
+          <span><i class="fa-solid fa-images"></i> CIFAR-10</span>
+        </div>
+        <div class="pc-tech"><span>NumPy</span><span>CIFAR-10</span><span>SVM Loss</span><span>Backprop</span><span>Python</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="pc-hd">
+          <div class="pc-ico"><i class="fa-solid fa-bolt"></i></div>
+          <div class="pc-top-right">
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <h3 class="pc-title">Conway's Game of Life — Parallel vs Serial</h3>
+        <p class="pc-desc">Rigorous performance study comparing serial and OpenMP-parallelised C++ implementations of Conway's Game of Life across grid sizes. Measures speedup, parallel efficiency, and cache behaviour. Demonstrates thread management, race condition avoidance, and SIMD-friendly memory layout for compute-intensive simulations.</p>
+        <div class="pc-metrics">
+          <span><i class="fa-solid fa-gauge-high"></i> Speedup analysis</span>
+          <span><i class="fa-solid fa-microchip"></i> OpenMP threads</span>
+          <span><i class="fa-solid fa-chart-line"></i> Scalability tests</span>
+        </div>
+        <div class="pc-tech"><span>C++</span><span>OpenMP</span><span>Parallel Computing</span><span>Performance</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="eyebrow"><span class="mono cyan">04 /</span> Experience</p>
+    <h2 class="section-title">Where I've Worked</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-marker">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-hd">
+            <div>
+              <h3 class="tl-role">Machine Learning Intern</h3>
+              <span class="tl-company"><i class="fa-solid fa-building"></i> Nebunex AI — Islamabad</span>
+            </div>
+            <span class="tl-date">Jun 2024 – Aug 2024</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Engineered scalable data pipelines for MIMIC-III and MIMIC-IV clinical datasets, processing <strong>50,000+ patient records</strong> using Python, Pandas, and NumPy with parallelised preprocessing.</li>
+            <li>Developed and optimised ML models with scikit-learn, applying ensemble methods (Random Forest, Gradient Boosting), k-fold cross-validation, and hyperparameter tuning to improve performance metrics.</li>
+            <li>Built a <strong>multimodal AI diagnostic system</strong> integrating ECG imagery with clinical reports via OpenAI's CLIP — leveraging vision-language contrastive learning for enhanced diagnostic prediction.</li>
+            <li>Applied <strong>transformer architectures and LLMs</strong> for clinical NLP: prompt engineering, attention mechanisms, and embeddings to extract structured insights from unstructured patient notes.</li>
+          </ul>
+          <div class="tl-tags">
+            <span>PyTorch</span><span>CLIP</span><span>LLMs</span><span>Pandas</span><span>scikit-learn</span><span>NumPy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <p class="eyebrow" style="margin-bottom:1.25rem"><span class="mono cyan">Education</span></p>
+      <div class="edu-card">
+        <div class="edu-ico"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="edu-body">
+          <h3 class="edu-degree">BS Artificial Intelligence</h3>
+          <span class="edu-school">National University of Computer and Emerging Sciences (FAST), Islamabad</span>
+          <span class="edu-date">Aug 2022 – Jun 2026</span>
+          <div class="edu-courses">
+            <span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span>
+            <span>NLP</span><span>Generative AI</span><span>Agentic AI</span>
+            <span>Digital Image Processing</span><span>Computer Networks</span><span>Database Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="eyebrow"><span class="mono cyan">05 /</span> Contact</p>
+    <h2 class="section-title">Let's Build Something<br/><span class="cyan">Intelligent.</span></h2>
+    <p class="section-sub">Open to remote roles, freelance AI projects, and research collaborations.</p>
+
+    <div class="contact-simple">
+      <p class="contact-intro">Whether you have a project in mind, a research collaboration, or just want to connect — I'd love to hear from you. Reach out directly through any of the channels below.</p>
+      <div class="contact-cards-row">
+        <a href="mailto:abdullahzx2004@gmail.com" class="contact-card">
+          <div class="cc-ico"><i class="fa-solid fa-envelope"></i></div>
+          <div class="cc-txt"><span class="cc-lbl">Email</span><span class="cc-val">abdullahzx2004@gmail.com</span></div>
+          <i class="fa-solid fa-arrow-right cc-arr"></i>
         </a>
-        <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
+        <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-ico"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div class="cc-txt"><span class="cc-lbl">LinkedIn</span><span class="cc-val">Abdullah on LinkedIn</span></div>
+          <i class="fa-solid fa-arrow-right cc-arr"></i>
         </a>
-        <a href="mailto:abdullahzx2004@gmail.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
+        <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-ico"><i class="fa-brands fa-github"></i></div>
+          <div class="cc-txt"><span class="cc-lbl">GitHub</span><span class="cc-val">github.com/Abdullah2073</span></div>
+          <i class="fa-solid fa-arrow-right cc-arr"></i>
         </a>
       </div>
     </div>
-    <div class="hero-lines" aria-hidden="true">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <div class="scroll-pill"><div class="scroll-dot"></div></div>
-      <span class="mono">scroll</span>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about" aria-labelledby="about-h">
-    <div class="container">
-      <p class="eyebrow reveal-fade"><span class="mono accent-text">01 /</span> About Me</p>
-      <div class="about-grid">
-        <div class="about-text reveal-left">
-          <h2 id="about-h" class="section-title">Building at the frontier<br/><span class="accent-text">of intelligence.</span></h2>
-          <p>I'm an AI undergraduate at <strong>FAST-NUCES Islamabad</strong>, pursuing a BS in Artificial Intelligence with deep specialisation in production-grade ML systems. My work lives at the intersection of deep learning, large language models, and scalable backend AI services.</p>
-          <p>During my internship at <strong>Nebunex AI</strong>, I engineered multimodal AI systems integrating clinical ECG data with vision-language models via CLIP, processed 50,000+ patient records through optimised parallel pipelines, and applied transformer architectures for unstructured medical NLP.</p>
-          <p>I build things that think — secure RAG pipelines, CNN/ViT classifiers, agentic orchestration systems, and containerised microservices. My goal: ship AI that works reliably, at scale.</p>
-          <div class="about-stats">
-            <div class="stat-item"><span class="stat-num">4+</span><span class="stat-label">Production Projects</span></div>
-            <div class="stat-item"><span class="stat-num">50K+</span><span class="stat-label">Records Processed</span></div>
-            <div class="stat-item"><span class="stat-num">2026</span><span class="stat-label">Graduating</span></div>
-          </div>
-        </div>
-        <div class="reveal-right">
-          <div class="about-card">
-            <div class="card-avatar" aria-hidden="true">
-              <div class="orbit-ring"></div>
-              <div class="avatar-core"><i class="fa-solid fa-brain"></i></div>
-            </div>
-            <div class="card-info-list">
-              <div class="info-row"><i class="fa-solid fa-graduation-cap"></i><span>BS Artificial Intelligence, FAST</span></div>
-              <div class="info-row"><i class="fa-solid fa-location-dot"></i><span>Islamabad, Pakistan</span></div>
-              <div class="info-row"><i class="fa-solid fa-code"></i><span>Python · PyTorch · LangChain</span></div>
-              <div class="info-row"><i class="fa-solid fa-rocket"></i><span>Open to Global Remote Roles</span></div>
-            </div>
-            <div class="card-tags">
-              <span>LLMs</span><span>Computer Vision</span><span>RAG</span><span>NLP</span><span>Deep Learning</span>
-            </div>
-          </div>
-        </div>
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><span>&lt;</span>Abdullah<span>/&gt;</span></div>
+        <p class="footer-sub">AI Engineer · ML Developer · AI-First Builder</p>
+      </div>
+      <p class="footer-copy">Built with <span style="color:#ff5c78">❤️</span> by Abdullah &nbsp;·&nbsp; © 2025</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:abdullahzx2004@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- SKILLS -->
-  <section id="skills" aria-labelledby="skills-h">
-    <div class="container">
-      <p class="eyebrow reveal-fade"><span class="mono accent-text">02 /</span> Skills</p>
-      <h2 id="skills-h" class="section-title reveal-fade">My Tech Arsenal</h2>
-      <div class="skills-grid">
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-        <div class="skill-card reveal-up" style="--d:0.05s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-terminal"></i></div><span>Programming</span></div>
-          <div class="skill-bars">
-            <div class="skill-row"><div class="sk-meta"><span>Python</span><span>95%</span></div><div class="sk-bar"><div class="sk-fill" data-w="95"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>C / C++</span><span>75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>SQL</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>JavaScript</span><span>65%</span></div><div class="sk-bar"><div class="sk-fill" data-w="65"></div></div></div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" style="--d:0.1s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-microchip"></i></div><span>AI / ML Frameworks</span></div>
-          <div class="skill-bars">
-            <div class="skill-row"><div class="sk-meta"><span>PyTorch</span><span>90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>LangChain</span><span>85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>TensorFlow</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>Scikit-Learn</span><span>88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" style="--d:0.15s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-database"></i></div><span>Data Engineering</span></div>
-          <div class="skill-bars">
-            <div class="skill-row"><div class="sk-meta"><span>NumPy / Pandas</span><span>92%</span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>Feature Engineering</span><span>85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>OpenCV</span><span>80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>MySQL</span><span>78%</span></div><div class="sk-bar"><div class="sk-fill" data-w="78"></div></div></div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" style="--d:0.2s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-server"></i></div><span>Backend & DevOps</span></div>
-          <div class="skill-bars">
-            <div class="skill-row"><div class="sk-meta"><span>Django</span><span>75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>gRPC</span><span>72%</span></div><div class="sk-bar"><div class="sk-fill" data-w="72"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>Docker</span><span>70%</span></div><div class="sk-bar"><div class="sk-fill" data-w="70"></div></div></div>
-            <div class="skill-row"><div class="sk-meta"><span>Git / GitHub</span><span>90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
-          </div>
-        </div>
-
-        <div class="skill-card chip-card reveal-up" style="--d:0.25s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-eye"></i></div><span>Computer Vision</span></div>
-          <div class="chip-grid">
-            <span>Image Classification</span><span>Object Detection</span><span>CNNs</span>
-            <span>Vision Transformers</span><span>CLIP</span><span>Diffusion Models</span>
-            <span>OpenCV</span><span>Segmentation</span>
-          </div>
-        </div>
-
-        <div class="skill-card chip-card reveal-up" style="--d:0.3s">
-          <div class="skill-card-hd"><div class="sk-icon"><i class="fa-solid fa-comments"></i></div><span>NLP & LLM Ops</span></div>
-          <div class="chip-grid">
-            <span>RAG Pipelines</span><span>LangGraph</span><span>CrewAI</span>
-            <span>Prompt Engineering</span><span>Embeddings</span><span>ChromaDB</span>
-            <span>n8n</span><span>Agent Orchestration</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" aria-labelledby="projects-h">
-    <div class="container">
-      <p class="eyebrow reveal-fade"><span class="mono accent-text">03 /</span> Projects</p>
-      <h2 id="projects-h" class="section-title reveal-fade">Things I've Built</h2>
-      <p class="section-sub reveal-fade">Production-grade AI systems built with precision and purpose.</p>
-
-      <div class="projects-grid">
-
-        <!-- PROJECT 1: RAG System -->
-        <article class="project-card reveal-up" style="--d:0.05s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div class="pc-badges">
-              <span class="badge-featured">Featured</span>
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">Multi-Tenant Agentic RAG System</h3>
-          <p class="pc-desc">
-            Enterprise-grade RAG platform with a multi-layered security architecture for SaaS environments.
-            Implements injection attack detection, ACL-based tenant isolation ensuring strict data separation
-            across clients, and PII masking via regex. Conversational memory maintains context across sessions.
-            Groq LLM integration delivers sub-200ms inference with mandatory citation enforcement for
-            traceable, hallucination-resistant outputs.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-lock"></i><span>Multi-layer security</span></div>
-            <div class="metric"><i class="fa-solid fa-bolt"></i><span>&lt;200ms inference</span></div>
-            <div class="metric"><i class="fa-solid fa-shield-check"></i><span>PII masking</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>LangChain</span><span>ChromaDB</span><span>Groq API</span><span>RAG</span><span>Python</span><span>LangGraph</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 2: Text-to-Image -->
-        <article class="project-card reveal-up" style="--d:0.1s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-image"></i></div>
-            <div class="pc-badges">
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">DreamShaper — Text-to-Image Microservice</h3>
-          <p class="pc-desc">
-            Fully containerised AI image-generation service built on gRPC for high-performance, low-latency
-            communication. Powered by Hugging Face Stable Diffusion models with concurrent request handling
-            via asyncio threading. Features a clean proto-defined API, unit and Postman integration tests,
-            a Gradio frontend demo, and Docker packaging for one-command deployment. Optimised with
-            model caching and batch inference to reduce VRAM overhead.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-cubes"></i><span>Containerised</span></div>
-            <div class="metric"><i class="fa-solid fa-arrows-spin"></i><span>Concurrent requests</span></div>
-            <div class="metric"><i class="fa-solid fa-vial"></i><span>Unit + API tested</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>Hugging Face</span><span>gRPC</span><span>PyTorch</span><span>Docker</span><span>Gradio</span><span>Diffusion</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 3: Image Classification -->
-        <article class="project-card reveal-up" style="--d:0.15s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-layer-group"></i></div>
-            <div class="pc-badges">
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">Image Classification System</h3>
-          <p class="pc-desc">
-            Full-stack web app benchmarking CNN architectures against Vision Transformers (ViTs) for
-            image classification. The Django backend handles preprocessing, model inference, and returns
-            confidence scores with per-class probability distributions. An interactive frontend visualises
-            predictions in real time with animated confidence bars and supports model switching at runtime
-            for direct CNN-vs-ViT accuracy comparisons.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-chart-bar"></i><span>CNN vs ViT</span></div>
-            <div class="metric"><i class="fa-solid fa-percent"></i><span>Confidence scores</span></div>
-            <div class="metric"><i class="fa-solid fa-globe"></i><span>Full-stack app</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>PyTorch</span><span>TensorFlow</span><span>Django</span><span>OpenCV</span><span>ViT</span><span>NumPy</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 4: Flight Delay -->
-        <article class="project-card reveal-up" style="--d:0.2s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-plane-departure"></i></div>
-            <div class="pc-badges">
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">Flight Departure Delay Prediction</h3>
-          <p class="pc-desc">
-            End-to-end ML pipeline predicting flight delays from merged flight operations and weather data.
-            Deep EDA uncovered key delay drivers including route congestion and weather severity. Feature
-            engineering introduced temporal and interaction features. Multiple classifiers (Random Forest,
-            Gradient Boosting, XGBoost) evaluated via stratified k-fold cross-validation. Final model
-            selected on balanced Accuracy, Precision, Recall, and F1-score, with SHAP explainability
-            validating feature importance.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Deep EDA</span></div>
-            <div class="metric"><i class="fa-solid fa-sliders"></i><span>Cross-validation</span></div>
-            <div class="metric"><i class="fa-solid fa-trophy"></i><span>F1-optimised</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>Scikit-Learn</span><span>XGBoost</span><span>Pandas</span><span>NumPy</span><span>SHAP</span><span>Matplotlib</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 5: Neural Network Scratch -->
-        <article class="project-card reveal-up" style="--d:0.25s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-network-wired"></i></div>
-            <div class="pc-badges">
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">Neural Network from Scratch</h3>
-          <p class="pc-desc">
-            Ground-up neural network implementation on CIFAR-10 — no frameworks, pure NumPy. Covers forward
-            and backward passes, multi-class SVM loss, gradient descent with momentum, and weight
-            regularisation from first principles. Built to deeply understand the mathematics of
-            backpropagation and optimisation, without the abstraction layer of PyTorch or TensorFlow.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-code"></i><span>Zero frameworks</span></div>
-            <div class="metric"><i class="fa-solid fa-square-root-variable"></i><span>Pure math</span></div>
-            <div class="metric"><i class="fa-solid fa-images"></i><span>CIFAR-10</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>NumPy</span><span>CIFAR-10</span><span>SVM Loss</span><span>Backprop</span><span>Python</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 6: Conway's -->
-        <article class="project-card reveal-up" style="--d:0.3s">
-          <div class="pc-header">
-            <div class="pc-icon"><i class="fa-solid fa-bolt"></i></div>
-            <div class="pc-badges">
-              <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="pc-gh-btn" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-          <h3 class="pc-title">Conway's Game of Life — Parallel vs Serial</h3>
-          <p class="pc-desc">
-            Rigorous performance study comparing serial and OpenMP-parallelised C++ implementations of
-            Conway's Game of Life across varying grid sizes. Measures speedup, parallel efficiency, and
-            cache behaviour. Demonstrates thread management, race condition avoidance, and SIMD-friendly
-            memory layout for compute-intensive simulations.
-          </p>
-          <div class="pc-metrics">
-            <div class="metric"><i class="fa-solid fa-gauge-high"></i><span>Speedup analysis</span></div>
-            <div class="metric"><i class="fa-solid fa-microchip"></i><span>OpenMP threads</span></div>
-            <div class="metric"><i class="fa-solid fa-chart-line"></i><span>Scalability tests</span></div>
-          </div>
-          <div class="pc-tech">
-            <span>C++</span><span>OpenMP</span><span>Parallel Computing</span><span>Performance</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" aria-labelledby="exp-h">
-    <div class="container">
-      <p class="eyebrow reveal-fade"><span class="mono accent-text">04 /</span> Experience</p>
-      <h2 id="exp-h" class="section-title reveal-fade">Where I've Worked</h2>
-
-      <div class="timeline">
-        <div class="timeline-item reveal-left">
-          <div class="tl-marker" aria-hidden="true">
-            <div class="tl-dot"></div>
-            <div class="tl-line"></div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-header">
-              <div>
-                <h3 class="tl-role">Machine Learning Intern</h3>
-                <span class="tl-company"><i class="fa-solid fa-building"></i> Nebunex AI — Islamabad</span>
-              </div>
-              <span class="tl-date">Jun 2024 – Aug 2024</span>
-            </div>
-            <ul class="tl-bullets">
-              <li>Engineered scalable data pipelines for MIMIC-III and MIMIC-IV clinical datasets, processing <strong>50,000+ patient records</strong> using Python, Pandas, and NumPy with parallelised preprocessing for large-scale model training readiness.</li>
-              <li>Developed and optimised ML models with scikit-learn, applying ensemble methods (Random Forest, Gradient Boosting), k-fold cross-validation, and systematic hyperparameter tuning to measurably improve performance metrics.</li>
-              <li>Built a <strong>multimodal AI diagnostic system</strong> integrating ECG imagery with clinical text reports via OpenAI's CLIP — leveraging vision-language contrastive learning to enhance diagnostic prediction accuracy.</li>
-              <li>Applied <strong>transformer architectures and LLMs</strong> for clinical NLP: implemented prompt engineering, attention mechanisms, and embeddings to extract structured insights from unstructured patient notes.</li>
-            </ul>
-            <div class="tl-tags">
-              <span>PyTorch</span><span>CLIP</span><span>LLMs</span><span>Pandas</span><span>scikit-learn</span><span>NumPy</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="edu-section reveal-up">
-        <p class="eyebrow" style="margin-bottom:1.25rem"><span class="mono accent-text">Education</span></p>
-        <div class="edu-card">
-          <div class="edu-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
-          <div class="edu-body">
-            <h3 class="edu-degree">BS Artificial Intelligence</h3>
-            <span class="edu-school">National University of Computer and Emerging Sciences (FAST), Islamabad</span>
-            <span class="edu-date">Aug 2022 – Jun 2026</span>
-            <div class="edu-courses">
-              <span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span>
-              <span>NLP</span><span>Generative AI</span><span>Agentic AI</span>
-              <span>Digital Image Processing</span><span>Computer Networks</span><span>Database Systems</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" aria-labelledby="contact-h">
-    <div class="container">
-      <p class="eyebrow reveal-fade"><span class="mono accent-text">05 /</span> Contact</p>
-      <h2 id="contact-h" class="section-title reveal-fade">Let's Build Something<br/><span class="accent-text">Intelligent.</span></h2>
-      <p class="section-sub reveal-fade">Open to remote roles, freelance AI projects, and research collaborations.</p>
-
-      <div class="contact-grid">
-        <div class="contact-left reveal-left">
-          <p class="contact-intro">Whether you have a project in mind, a research collaboration, or just want to connect — I'd love to hear from you.</p>
-          <div class="contact-links">
-            <a href="mailto:abdullahzx2004@gmail.com" class="contact-card">
-              <div class="cc-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div class="cc-text">
-                <span class="cc-label">Email</span>
-                <span class="cc-value">abdullahzx2004@gmail.com</span>
-              </div>
-              <i class="fa-solid fa-arrow-right cc-arrow"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" class="contact-card">
-              <div class="cc-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-              <div class="cc-text">
-                <span class="cc-label">LinkedIn</span>
-                <span class="cc-value">Abdullah on LinkedIn</span>
-              </div>
-              <i class="fa-solid fa-arrow-right cc-arrow"></i>
-            </a>
-            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="contact-card">
-              <div class="cc-icon"><i class="fa-brands fa-github"></i></div>
-              <div class="cc-text">
-                <span class="cc-label">GitHub</span>
-                <span class="cc-value">github.com/Abdullah2073</span>
-              </div>
-              <i class="fa-solid fa-arrow-right cc-arrow"></i>
-            </a>
-          </div>
-        </div>
-
-        <form class="contact-form reveal-right" id="contact-form" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">Name</label>
-              <input type="text" id="fname" name="name" placeholder="Your full name" required autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label for="femail">Email</label>
-              <input type="email" id="femail" name="email" placeholder="your@email.com" required autocomplete="email" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="fsubject">Subject</label>
-            <input type="text" id="fsubject" name="subject" placeholder="Project proposal, collaboration..." />
-          </div>
-          <div class="form-group">
-            <label for="fmessage">Message</label>
-            <textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
-            <i class="fa-solid fa-paper-plane"></i> Send Message
-          </button>
-          <p class="form-note"><span class="mono">// </span>Direct email: abdullahzx2004@gmail.com</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo"><span class="mono">&lt;</span>Abdullah<span class="mono">/&gt;</span></div>
-          <p class="footer-sub">AI Engineer · ML Developer · AI-First Builder</p>
-        </div>
-        <p class="footer-copy">Built with <span class="heart">❤️</span> by Abdullah &nbsp;·&nbsp; © 2025</p>
-        <div class="footer-socials">
-          <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/abdullah-abdullah-4080bb265/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="mailto:abdullahzx2004@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
