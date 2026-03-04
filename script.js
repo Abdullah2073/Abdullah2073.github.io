@@ -1,58 +1,47 @@
-/* ================================================================
-   ABDULLAH PORTFOLIO — script.js  v2.1
-   Key fix: body.js-loaded gates all reveal animations so content
-   is always visible even before JS runs.
-   ================================================================ */
+/* ============================================================
+   ABDULLAH PORTFOLIO — script.js v3
+   All sections visible by default in CSS.
+   JS only adds optional scroll animations on top.
+   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Add js-loaded to body IMMEDIATELY so CSS can enable animations
-  document.body.classList.add('js-loaded');
-
-  /* ──────────────────────────────────────────────
-     1. LOADER
-  ────────────────────────────────────────────── */
+  /* ── 1. LOADER ─────────────────────────────────── */
   const loader = document.getElementById('loader');
 
   function hideLoader() {
     loader.classList.add('hidden');
-    // Animate hero elements in sequence after loader hides
-    const heroEls = document.querySelectorAll('#hero .reveal-fade, #hero .reveal-up');
-    heroEls.forEach(el => el.classList.add('in'));
   }
 
+  // Hide loader after fonts/images settle
   if (document.readyState === 'complete') {
-    setTimeout(hideLoader, 700);
+    setTimeout(hideLoader, 600);
   } else {
-    window.addEventListener('load', () => setTimeout(hideLoader, 700));
+    window.addEventListener('load', () => setTimeout(hideLoader, 600));
   }
+  // Hard fallback: always hide after 2s no matter what
+  setTimeout(hideLoader, 2000);
 
-  /* ──────────────────────────────────────────────
-     2. NEURAL NETWORK BACKGROUND CANVAS
-  ────────────────────────────────────────────── */
+  /* ── 2. NEURAL NETWORK CANVAS ────────────────── */
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let W, H, nodes, raf;
-    const MAX_DIST = 130;
+    const MAX = 130;
 
-    function resize() {
+    const resize = () => {
       W = canvas.width  = window.innerWidth;
-      H = canvas.height = document.documentElement.clientHeight || window.innerHeight;
-    }
-
-    function initNodes() {
-      const count = Math.min(Math.floor((W * H) / 16000), 80);
-      nodes = Array.from({ length: count }, () => ({
-        x:  Math.random() * W,
-        y:  Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
-        r:  Math.random() * 1.4 + 0.5,
+      H = canvas.height = window.innerHeight;
+    };
+    const init = () => {
+      const n = Math.min(Math.floor(W * H / 16000), 80);
+      nodes = Array.from({ length: n }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28,
+        r: Math.random() * 1.4 + .5,
       }));
-    }
-
-    function draw() {
+    };
+    const draw = () => {
       ctx.clearRect(0, 0, W, H);
       nodes.forEach(n => {
         n.x += n.vx; n.y += n.vy;
@@ -61,234 +50,130 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const d  = Math.sqrt(dx * dx + dy * dy);
-          if (d < MAX_DIST) {
+          const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+          const d  = Math.sqrt(dx*dx + dy*dy);
+          if (d < MAX) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(0,212,255,${(1 - d / MAX_DIST) * 0.11})`;
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
+            ctx.strokeStyle = `rgba(0,212,255,${(1 - d/MAX) * .11})`;
+            ctx.lineWidth = .6; ctx.stroke();
           }
         }
         ctx.beginPath();
-        ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,212,255,0.18)';
-        ctx.fill();
+        ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(0,212,255,0.18)'; ctx.fill();
       }
       raf = requestAnimationFrame(draw);
-    }
+    };
 
-    resize(); initNodes(); draw();
-    let resizeTimer;
+    resize(); init(); draw();
+    let rt;
     window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        cancelAnimationFrame(raf);
-        resize(); initNodes(); draw();
-      }, 200);
+      clearTimeout(rt); rt = setTimeout(() => { cancelAnimationFrame(raf); resize(); init(); draw(); }, 200);
     });
   }
 
-  /* ──────────────────────────────────────────────
-     3. NAVBAR — scroll class + mobile toggle
-  ────────────────────────────────────────────── */
+  /* ── 3. NAVBAR ─────────────────────────────────── */
   const navbar    = document.getElementById('navbar');
   const navToggle = document.getElementById('nav-toggle');
   const navLinks  = document.getElementById('nav-links');
 
-  // Scroll: add .scrolled class
-  function onScroll() {
+  const onScroll = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
-    updateNavActive();
-    toggleBackToTop();
-  }
+    updateActive();
+    document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 450);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+  onScroll();
 
-  // Mobile menu toggle
+  /* ── 4. MOBILE MENU ─────────────────────────── */
   navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen);
-    // Prevent body scroll when menu open
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
-
-  // Close on link click
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close on Escape
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && navLinks.classList.contains('open')) {
       navLinks.classList.remove('open');
       navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   });
 
-  /* ──────────────────────────────────────────────
-     4. ACTIVE NAV LINK
-  ────────────────────────────────────────────── */
+  /* ── 5. ACTIVE NAV ─────────────────────────── */
   const sections   = Array.from(document.querySelectorAll('section[id]'));
   const navAnchors = Array.from(navLinks.querySelectorAll('a'));
-
-  function updateNavActive() {
-    const scrollY = window.scrollY + 120;
-    let current = '';
-    sections.forEach(sec => {
-      if (scrollY >= sec.offsetTop) current = sec.id;
-    });
-    navAnchors.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
-    });
+  function updateActive() {
+    const y = window.scrollY + 120;
+    let cur = '';
+    sections.forEach(s => { if (y >= s.offsetTop) cur = s.id; });
+    navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${cur}`));
   }
 
-  /* ──────────────────────────────────────────────
-     5. SCROLL REVEAL (Intersection Observer)
-        Excludes hero (handled by loader above).
-        Large rootMargin ensures elements trigger
-        well before they scroll into view.
-  ────────────────────────────────────────────── */
-  const revealEls = document.querySelectorAll(
-    'section:not(#hero) .reveal-fade, section:not(#hero) .reveal-up, section:not(#hero) .reveal-left, section:not(#hero) .reveal-right'
-  );
+  /* ── 6. SMOOTH SCROLL (navbar offset) ─────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight - 12, behavior: 'smooth' });
+    });
+  });
 
-  // Fallback: if IntersectionObserver not available, show all immediately
-  if (!('IntersectionObserver' in window)) {
-    revealEls.forEach(el => el.classList.add('in'));
+  /* ── 7. SKILL BARS ─────────────────────────── */
+  const fills = document.querySelectorAll('.sk-fill');
+
+  function animateBars() {
+    fills.forEach(f => { f.style.width = f.dataset.w + '%'; });
+  }
+
+  if ('IntersectionObserver' in window) {
+    // Observe the skills section, not individual tiny bars
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            animateBars();
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.05 });
+      obs.observe(skillsSection);
+    } else {
+      animateBars();
+    }
   } else {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0,           // trigger as soon as ANY pixel is visible
-      rootMargin: '0px 0px -10px 0px'  // very small offset
-    });
-
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Safety net: after 2s, force-reveal everything still hidden
-    setTimeout(() => {
-      revealEls.forEach(el => el.classList.add('in'));
-    }, 2000);
+    animateBars();
   }
+  // Hard fallback: animate after 3s regardless
+  setTimeout(animateBars, 3000);
 
-  /* ──────────────────────────────────────────────
-     6. SKILL BARS — animate on scroll
-  ────────────────────────────────────────────── */
-  const skillFills = document.querySelectorAll('.sk-fill');
-
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const w  = el.getAttribute('data-w');
-        if (w) el.style.width = w + '%';
-        barObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  skillFills.forEach(f => barObserver.observe(f));
-
-  /* ──────────────────────────────────────────────
-     7. PROJECT CARDS — 3D tilt on hover
-  ────────────────────────────────────────────── */
-  // Only on non-touch devices
-  const isTouch = window.matchMedia('(hover: none)').matches;
-  if (!isTouch) {
+  /* ── 8. PROJECT CARD TILT ─────────────────── */
+  if (!window.matchMedia('(hover:none)').matches) {
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const cx   = rect.left + rect.width  / 2;
-        const cy   = rect.top  + rect.height / 2;
-        const rx   = ((e.clientY - cy) / (rect.height / 2)) * -5;
-        const ry   = ((e.clientX - cx) / (rect.width  / 2)) *  5;
+        const r  = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top  - r.height/2) / (r.height/2)) * -5;
+        const ry = ((e.clientX - r.left - r.width/2)  / (r.width/2))  *  5;
         card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
       });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
+      card.addEventListener('mouseleave', () => card.style.transform = '');
     });
   }
 
-  /* ──────────────────────────────────────────────
-     8. BACK TO TOP
-  ────────────────────────────────────────────── */
-  const backToTop = document.getElementById('back-to-top');
+  /* ── 9. BACK TO TOP ────────────────────────── */
+  document.getElementById('back-to-top').addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
 
-  function toggleBackToTop() {
-    backToTop.classList.toggle('visible', window.scrollY > 450);
-  }
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ──────────────────────────────────────────────
-     9. CONTACT FORM — UX feedback
-  ────────────────────────────────────────────── */
-  const form      = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-
-      const origHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-      submitBtn.style.cssText = 'background: var(--green); color: var(--bg); pointer-events:none;';
-
-      setTimeout(() => {
-        submitBtn.innerHTML  = origHTML;
-        submitBtn.style.cssText = '';
-        form.reset();
-      }, 3500);
-    });
-
-    // Live validation hints
-    form.querySelectorAll('input[required], textarea[required]').forEach(field => {
-      field.addEventListener('blur', () => {
-        if (field.value.trim() && field.checkValidity()) {
-          field.style.borderColor = 'rgba(0,229,160,0.5)';
-        } else if (!field.value.trim()) {
-          field.style.borderColor = '';
-        }
-      });
-      field.addEventListener('focus', () => {
-        field.style.borderColor = '';
-      });
-    });
-  }
-
-  /* ──────────────────────────────────────────────
-     10. SMOOTH ANCHOR SCROLLING
-         Accounts for fixed navbar height
-  ────────────────────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      const navH   = navbar.offsetHeight;
-      const top    = target.getBoundingClientRect().top + window.scrollY - navH - 16;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
 
 });
