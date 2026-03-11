@@ -741,77 +741,34 @@ footer::before {
 
 /* ── Mobile menu ── */
 @media(max-width:768px){
-  /* Nav always opaque on mobile so logo + area is always visible */
+  /* Nav bar always has background on mobile so toggle button is always visible */
   nav{background:rgba(8,12,16,.97);}
-
-  /* Toggle: fixed position, top-right corner, z-index above everything */
-  .nav-toggle{
-    display:flex;
-    position:fixed;
-    top:15px;
-    right:1rem;
-    z-index:9998; /* just below loader (9999), above overlay (500) */
-    background:rgba(8,12,16,.9);
-    border:1px solid var(--bdr);
-    border-radius:6px;
-    padding:7px;
-    width:38px;height:38px;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-  }
-
-  /* Full-screen overlay — below toggle */
+  /* Overlay sits ABOVE nav (z-index > 100) */
   .nav-links{
-    position:fixed;
-    inset:0;
-    z-index:500;
+    position:fixed;inset:0;
+    z-index:200;
     background:rgba(8,12,16,.97);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:.5rem;
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:opacity .35s ease, visibility .35s ease;
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:.5rem;opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .3s,visibility .3s;
   }
-  .nav-links.open{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-  }
-
-  /* Nav links — staggered slide-up */
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
   .nav-links li a{
-    display:block;
-    font-family:var(--fh);
-    font-size:1.6rem;
-    font-weight:700;
-    color:var(--t);
-    padding:.6rem 2.5rem;
-    text-align:center;
-    border-radius:8px;
-    opacity:0;
-    transform:translateY(16px);
-    transition:opacity .35s ease, transform .35s ease, color .2s, background .2s;
+    font-family:var(--fh);font-size:1.5rem;font-weight:600;
+    color:var(--t);padding:.5rem 2rem;
+    opacity:0;transform:translateY(12px);
+    transition:opacity .3s ease, transform .3s ease, color .2s, background .2s;
   }
-  .nav-links li a:hover{color:var(--cyan);background:var(--sur)}
   .nav-links.open li a{opacity:1;transform:none}
-  .nav-links.open li:nth-child(1) a{transition-delay:.06s}
-  .nav-links.open li:nth-child(2) a{transition-delay:.12s}
-  .nav-links.open li:nth-child(3) a{transition-delay:.18s}
-  .nav-links.open li:nth-child(4) a{transition-delay:.24s}
-  .nav-links.open li:nth-child(5) a{transition-delay:.30s}
-
-  /* Hide desktop resume button — too crowded on mobile */
+  .nav-links.open li:nth-child(1) a{transition-delay:.05s}
+  .nav-links.open li:nth-child(2) a{transition-delay:.1s}
+  .nav-links.open li:nth-child(3) a{transition-delay:.15s}
+  .nav-links.open li:nth-child(4) a{transition-delay:.2s}
+  .nav-links.open li:nth-child(5) a{transition-delay:.25s}
+  /* Toggle button must sit ABOVE the overlay */
   .nav-cta{display:none}
-
-  /* Reduce nav-wrap padding so logo doesn't overlap toggle area */
-  .nav-wrap{padding:0 4rem 0 1.25rem}
+  .nav-toggle{display:flex;position:relative;z-index:201}
 }
 
 /* ── Responsive ── */
