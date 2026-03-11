@@ -30,7 +30,7 @@
 
 <nav id="navbar">
   <div class="nav-wrap">
-    <a href="#hero" class="nav-logo">Abdullah</a>
+    <a href="#hero" class="nav-logo"><span>&lt;</span>Abdullah<span>/&gt;</span></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -39,13 +39,14 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="Abdullah's_Resume.pdf" download class="nav-cta"><i class="fa-solid fa-download"></i> Resume</a>
-      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="Abdullah_Resume.pdf" download class="nav-cta"><i class="fa-solid fa-download"></i> Resume</a>
     </div>
   </div>
 </nav>
+<!-- Toggle lives outside nav so it's never trapped in nav's stacking context -->
+<button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
 
 <!-- ===== HERO ===== -->
 <section id="hero">
@@ -60,7 +61,7 @@
     <p class="hero-tag reveal-hero" style="--d:240ms">I architect <span class="c-cyan">intelligent systems</span> — from neural networks that see, to language models that reason, to pipelines that scale.</p>
     <div class="hero-btns reveal-hero" style="--d:320ms">
       <a href="#projects" class="btn btn-p"><i class="fa-solid fa-cube"></i> View Projects</a>
-      <a href="Abdullah's_Resume.pdf" download class="btn btn-o"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+      <a href="Abdullah_Resume.pdf" download class="btn btn-o"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
       <a href="#contact" class="btn btn-g"><i class="fa-solid fa-paper-plane"></i> Contact</a>
     </div>
     <div class="hero-socials reveal-hero" style="--d:400ms">
@@ -79,7 +80,7 @@
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="wrap">
-    <h4 class="c-cyan mono"> About Me</h4>
+    <p class="eye sr"><span class="c-cyan mono">01 /</span> About Me</p>
     <div class="about-grid">
       <div class="about-text sr sr-left">
         <h2 class="s-title">Building at the frontier<br/><span class="c-cyan">of intelligence.</span></h2>
@@ -114,7 +115,7 @@
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <div class="wrap">
-    <h4 class="c-cyan mono"> Skills</h4>
+    <p class="eye sr"><span class="c-cyan mono">02 /</span> Skills</p>
     <h2 class="s-title sr">My Tech Arsenal</h2>
     <div class="skills-grid">
       <div class="sk-card sr" style="--sd:0ms">
@@ -176,7 +177,7 @@
 <!-- ===== PROJECTS ===== -->
 <section id="projects">
   <div class="wrap">
-    <h4 class="c-cyan mono"> Projects</h4>
+    <p class="eye sr"><span class="c-cyan mono">03 /</span> Projects</p>
     <h2 class="s-title sr">Things I've Built</h2>
     <p class="s-sub sr">Production-grade AI systems built with precision and purpose.</p>
     <div class="proj-grid">
@@ -214,7 +215,7 @@
           <div class="pc-ico"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="pc-badges">
             <span class="feat-badge"><i class="fa-solid fa-star"></i> Featured</span>
-            <a href="https://github.com/Abdullah2073/Multi-Tenant-Agentic-RAG-System" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
           </div>
         </div>
         <h3 class="pc-title">Multi-Tenant Agentic RAG System</h3>
@@ -240,10 +241,10 @@
         <div class="pc-header">
           <div class="pc-ico"><i class="fa-solid fa-image"></i></div>
           <div class="pc-badges">
-            <a href="https://github.com/Abdullah2073/Text-to-image-microservice" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
           </div>
         </div>
-        <h3 class="pc-title">Text-to-Image Microservice</h3>
+        <h3 class="pc-title">DreamShaper — Text-to-Image Microservice</h3>
         <p class="pc-summary">Containerised AI image-generation service built on gRPC for high-performance communication.</p>
         <ul class="pc-bullets">
           <li>Hugging Face Stable Diffusion with concurrent request handling via asyncio</li>
@@ -266,7 +267,7 @@
         <div class="pc-header">
           <div class="pc-ico"><i class="fa-solid fa-layer-group"></i></div>
           <div class="pc-badges">
-            <a href="https://github.com/Abdullah2073/Image-Classification" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://github.com/Abdullah2073" target="_blank" rel="noopener" class="gh-btn"><i class="fa-brands fa-github"></i> GitHub</a>
           </div>
         </div>
         <h3 class="pc-title">Image Classification System</h3>
@@ -344,7 +345,7 @@
 <!-- ===== EXPERIENCE ===== -->
 <section id="experience">
   <div class="wrap">
-    <h4 class="c-cyan mono"> Experience</h4>
+    <p class="eye sr"><span class="c-cyan mono">04 /</span> Experience</p>
     <h2 class="s-title sr">Where I've Worked</h2>
     <div class="tl-wrap sr">
       <div class="tl-line-v"></div>
@@ -371,7 +372,7 @@
       </div>
     </div>
     <div class="edu-block sr">
-      <h4 class="c-cyan mono"> Education</h4>
+      <p class="eye" style="margin-bottom:1.25rem"><span class="c-cyan mono">Education</span></p>
       <div class="edu-card">
         <div class="edu-ico"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="edu-body">
@@ -392,7 +393,7 @@
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="wrap">
-    <h4 class="c-cyan mono"> Contact</h4>
+    <p class="eye sr"><span class="c-cyan mono">05 /</span> Contact</p>
     <h2 class="s-title sr">Let's Build Something<br/><span class="c-cyan">Intelligent.</span></h2>
     <p class="s-sub sr">Open to remote roles, freelance AI projects, and research collaborations.</p>
     <p class="ct-intro sr">Whether you have a project in mind, a research collaboration, or just want to connect — reach out through any channel below.</p>
@@ -428,7 +429,7 @@
       <!-- Col 1: Branding -->
       <div class="ft-col ft-brand">
         <a href="#hero" class="ft-logo">
-          Abdullah
+          <span class="ft-logo-bracket">&lt;</span>Abdullah<span class="ft-logo-bracket">/&gt;</span>
         </a>
         <p class="ft-tagline">AI Engineer building intelligent<br/>and scalable systems.</p>
         <p class="ft-location"><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</p>
@@ -494,7 +495,7 @@
             <i class="fa-solid fa-arrow-up-right-from-square ft-ext-ico"></i>
           </a>
         </div>
-        <a href="Abdullah's_Resume.pdf" download class="ft-resume-btn">
+        <a href="Abdullah_Resume.pdf" download class="ft-resume-btn">
           <i class="fa-solid fa-download"></i> Download Resume
         </a>
       </div>
@@ -502,7 +503,13 @@
     </div><!-- /ft-grid -->
 
     <!-- ── Bottom bar ── -->
-    
+    <div class="ft-bottom">
+      <p class="ft-copy">
+        Crafted with <span class="ft-heart">&#10084;</span> by <strong>Abdullah</strong>
+        &nbsp;·&nbsp; &copy; 2025 &nbsp;·&nbsp; All rights reserved
+      </p>
+      <p class="ft-stack-note mono">Built with HTML · CSS · Vanilla JS</p>
+    </div>
 
   </div><!-- /wrap -->
 </footer>

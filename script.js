@@ -90,23 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 5. MOBILE MENU ── */
   const navToggle = document.getElementById('nav-toggle');
   const navLinks  = document.getElementById('nav-links');
+  function closeMobileMenu() {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('op');
+    document.body.style.overflow = '';
+  }
   navToggle.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     navToggle.classList.toggle('op', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('op');
-    document.body.style.overflow = '';
-  }));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      navLinks.classList.remove('open');
-      navToggle.classList.remove('op');
-      document.body.style.overflow = '';
-    }
-  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+  // Close on overlay backdrop click (outside the links)
+  navLinks.addEventListener('click', e => { if (e.target === navLinks) closeMobileMenu(); });
 
   /* ── 6. ACTIVE NAV LINK ── */
   const sections   = Array.from(document.querySelectorAll('section[id]'));
