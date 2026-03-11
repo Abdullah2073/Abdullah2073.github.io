@@ -42,7 +42,7 @@ button{cursor:pointer;font-family:inherit}
 .c-cyan{color:var(--cyan)}
 
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
-#loader,nav,section{position:relative;z-index:1}
+#loader,nav,section,footer,#back-top{position:relative;z-index:1}
 
 /* ── Loader ── */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;transition:opacity .5s,visibility .5s}
@@ -416,10 +416,11 @@ section{padding:7rem 0}
    FOOTER — redesigned multi-column premium layout
    ════════════════════════════════════════════════ */
 footer {
+  position: relative;
+  z-index: 1;
   background: var(--bg);
   padding: 0;
-  /* No overflow:hidden — it clips fixed-position #back-top button */
-  /* No stacking context — z-index on footer traps fixed children */
+  overflow: hidden;
 }
 
 /* Top glow accent bar */
@@ -735,40 +736,17 @@ footer::before {
 }
 
 /* ── Back to top ── */
-#back-top{position:fixed;bottom:1.75rem;right:1.75rem;z-index:9990;width:42px;height:42px;border-radius:50%;background:var(--cyan);color:var(--bg);border:none;display:flex;align-items:center;justify-content:center;font-size:.85rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .3s;box-shadow:0 4px 16px rgba(0,212,255,.35)}
+#back-top{position:fixed;bottom:1.75rem;right:1.75rem;z-index:50;width:42px;height:42px;border-radius:50%;background:var(--cyan);color:var(--bg);border:none;display:flex;align-items:center;justify-content:center;font-size:.85rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .3s;box-shadow:0 4px 16px rgba(0,212,255,.35)}
 #back-top.show{opacity:1;visibility:visible}
 #back-top:hover{transform:translateY(-3px)}
 
 /* ── Mobile menu ── */
 @media(max-width:768px){
-  /* Nav bar always has background on mobile so toggle button is always visible */
-  nav{background:rgba(8,12,16,.97);}
-  /* Overlay sits ABOVE nav (z-index > 100) */
-  .nav-links{
-    position:fixed;inset:0;
-    z-index:200;
-    background:rgba(8,12,16,.97);
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:.5rem;opacity:0;visibility:hidden;pointer-events:none;
-    transition:opacity .3s,visibility .3s;
-  }
+  .nav-links{position:fixed;inset:0;z-index:99;background:rgba(8,12,16,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s}
   .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
-  .nav-links li a{
-    font-family:var(--fh);font-size:1.5rem;font-weight:600;
-    color:var(--t);padding:.5rem 2rem;
-    opacity:0;transform:translateY(12px);
-    transition:opacity .3s ease, transform .3s ease, color .2s, background .2s;
-  }
-  .nav-links.open li a{opacity:1;transform:none}
-  .nav-links.open li:nth-child(1) a{transition-delay:.05s}
-  .nav-links.open li:nth-child(2) a{transition-delay:.1s}
-  .nav-links.open li:nth-child(3) a{transition-delay:.15s}
-  .nav-links.open li:nth-child(4) a{transition-delay:.2s}
-  .nav-links.open li:nth-child(5) a{transition-delay:.25s}
-  /* Toggle button must sit ABOVE the overlay */
+  .nav-links a{font-family:var(--fh);font-size:1.5rem;font-weight:600;color:var(--t);padding:.5rem 2rem}
   .nav-cta{display:none}
-  .nav-toggle{display:flex;position:relative;z-index:201}
+  .nav-toggle{display:flex;z-index:101}
 }
 
 /* ── Responsive ── */
